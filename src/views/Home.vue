@@ -6,6 +6,9 @@
     >
       <!-- Search Input -->
       <div class="w-full max-w-screen-sm">
+        <div class="flex justify-center">
+          <img src="@/assets/gojo2.jpg" class="rounded-full">
+        </div>
         <h1 class="text-white text-center text-3xl pb-4">IP Address Tracker</h1>
         <div class="flex">
           <input
