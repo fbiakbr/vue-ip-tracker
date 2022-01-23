@@ -20,10 +20,19 @@
           ></i>
         </div>
         <div class="flex pt-1">
-          <h5 class="text-white">Lookup details about an IP address including location, timezone, and ISP.</h5>
+          <h5 class="text-white">
+            Lookup details about an IP address including location, timezone, and
+            ISP.
+          </h5>
         </div>
         <div class="flex pt-4 justify-center">
-          <button @click="getIpInfo" role="button" class="bg-black text-white text-md px-4 py-2 rounded-md">Get Current IP Address</button>
+          <button
+            @click="getIpInfo"
+            role="button"
+            class="bg-black text-white text-md px-4 py-2 rounded-md"
+          >
+            Get Current IP Address
+          </button>
         </div>
       </div>
       <!-- IP Info -->
@@ -31,6 +40,20 @@
     </div>
 
     <div id="map" class="h-full z-10"></div>
+  </div>
+  <hr class="border-gray-200" />
+  <div class="flex flex-wrap items-center md:justify-between justify-center">
+    <div class="w-full md:w-4/12 px-4 mx-auto text-center mt-4 mb-4">
+      <div class="text-sm text-gray-600 font-semibold py-1">
+        Made with ❤️ by
+        <a
+          href="https://github.com/fbiakbr"
+          class="text-blue-700 hover:text-blue-500"
+          target="_blank"
+          >Febiadi Wisnu Akbar</a
+        >.
+      </div>
+    </div>
   </div>
 </template>
 
@@ -57,8 +80,6 @@ export default {
         .tileLayer(
           "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZmJpYWticiIsImEiOiJja3lyN3Q5Y2wwNmp0Mm9xNzg3N3g4ZjM4In0.It3_0itDO2_UNAGwCJsVYA",
           {
-            attribution:
-              'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
             id: "mapbox/streets-v11",
             tileSize: 512,
@@ -83,10 +104,9 @@ export default {
           isp: result.isp,
           lat: result.location.lat,
           lng: result.location.lng,
-        }
+        };
         leaflet.marker([ipInfo.value.lat, ipInfo.value.lng]).addTo(mymap);
         mymap.setView([ipInfo.value.lat, ipInfo.value.lng], 14);
-        
       } catch (error) {
         alert(error.message);
       }
